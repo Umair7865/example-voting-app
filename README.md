@@ -4,13 +4,13 @@ A simple distributed application running across multiple Docker containers.
 
 ## Getting started
 
-Install Docker and run these below command to see the app with Docker Compose:
+Download Docker on Linux [Redhat 9](https://docs.docker.com/engine/install/rhel) and run these below command to see the app with Docker Compose:
 ```shell
-docker run -d --name db --hostname db  -e  POSTGRES_PASSWORD=postgres  postgres:9.4 
-docker run  -d  --name result  -p  5001:80  --link  db:db    result
-docker run -d --name redis  --hostname redis redis
-docker run -d --name worker --link redis:redis --link db:db worker
-docker run -d --name vote -p 5000:80 --link redis:redis vote
+docker run  -d  --name db      --hostname db  -e  POSTGRES_PASSWORD=postgres  postgres:9.4 
+docker run  -d  --name result  -p  5001:80    --link  db:db  result
+docker run  -d  --name redis   --hostname redis  redis
+docker run  -d  --name worker  --link redis:redis  --link db:db  worker
+docker run  -d  --name vote    -p 5000:80     --link redis:redis  vote
 ```
 
 Download [Docker Desktop](https://www.docker.com/products/docker-desktop) for Mac or Windows. [Docker Compose](https://docs.docker.com/compose) will be automatically installed. On Linux, make sure you have the latest version of [Compose](https://docs.docker.com/compose/install/).
