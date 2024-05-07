@@ -4,7 +4,7 @@ A simple distributed application running across multiple Docker containers.
 
 ## Getting started
 
-Download Docker on Linux [Redhat 9](https://docs.docker.com/engine/install/rhel) and run these below command to see the app with Docker Compose:
+Download Docker on Linux [Redhat 8](https://docs.docker.com/engine/install/rhel) and run these below command to see the app with Docker Compose:
 ```shell
 docker run  -d  --name db      --hostname db  -e  POSTGRES_PASSWORD=postgres  postgres:9.4 
 docker run  -d  --name result  -p  5001:80    --link  db:db  result
